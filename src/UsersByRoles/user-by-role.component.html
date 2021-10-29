@@ -1,0 +1,50 @@
+<div class="container">
+    <mat-form-field>
+        <mat-select [(ngModel)]="rolengModel" (ngModelChange)="onRoleSelect(rolengModel)">
+            <mat-option *ngFor="let role of roleArray" [value]="role.id">
+                {{role.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="user_id">
+            <mat-header-cell *matHeaderCellDef> USER ID </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.user_id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="fname">
+            <mat-header-cell *matHeaderCellDef> FULL NAME</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.fname + " " + element.lname}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lname">
+            <mat-header-cell *matHeaderCellDef> LAST NAME </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.lname}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="role_id">
+            <mat-header-cell *matHeaderCellDef> ROLE ID </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.role_id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="created_at">
+            <mat-header-cell *matHeaderCellDef> CREATED AT </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.created_at}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+    </mat-table>
+
+    <mat-paginator #paginator  [length]="userRoleArray.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+    </mat-paginator>
+</div>

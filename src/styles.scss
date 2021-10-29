@@ -1,0 +1,35 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+.basic-container {
+  padding: 30px;
+}
+.copyright {
+  font-size: 10pt; 
+  float: right;
+  color: cornflowerblue;
+}
+
+.tabInfo{
+  font-size: 16pt; 
+  color: rgb(204, 212, 87);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.headInfo {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: x-large;
+  color: cornflowerblue;
+}
+
+.mat-row:hover {
+  background-color: lightgrey;
+}
+
+/**  Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license */

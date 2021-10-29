@@ -1,0 +1,43 @@
+<div class="container">
+    <mat-form-field>
+        <mat-select [(ngModel)]="orgngModel" (ngModelChange)="onOrgSelect(orgngModel)">
+            <mat-option *ngFor="let org of orgArray" [value]="org.organization_id">
+                {{org.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="organization_id">
+            <mat-header-cell *matHeaderCellDef> ORGANIZATION ID </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.organization_id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="user_id">
+            <mat-header-cell *matHeaderCellDef> USER ID</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.user_id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> PROJECT NAME </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="created_at">
+            <mat-header-cell *matHeaderCellDef> CREATED AT </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.created_at}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+    </mat-table>
+
+    <mat-paginator #paginator  [length]="projectsArray.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+    </mat-paginator>
+</div>
